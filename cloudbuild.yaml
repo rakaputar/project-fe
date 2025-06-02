@@ -1,0 +1,8 @@
+# cloudbuild.yaml for Frontend
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/frontend', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/frontend']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['run', 'deploy', 'frontend', '--image', 'gcr.io/$PROJECT_ID/frontend', '--platform', 'managed', '--region', 'us-central1']
