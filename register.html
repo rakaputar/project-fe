@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #0052d4, #8fd6f9);
+    }
+    .login-container {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+    }
+    .left-panel, .right-panel, .form-box {
+      transition: all 0.4s ease-in-out;
+    }
+    .left-panel, .right-panel {
+      flex: 1;
+      padding: 60px 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .left-panel {
+      background: #fff;
+      flex-direction: column;
+      color: #2a2a2a;
+    }
+    .right-panel {
+      background: none;
+      color: #000;
+      padding: 20px;
+    }
+    .form-box {
+      width: 100%;
+      max-width: 400px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      color: #000;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .btn-register {
+      color: #fff;
+      background: #4b7bec;
+      border: none;
+    }
+    .btn-register:hover {
+      background: #4b7bec;
+    }
+    .form-control {
+      transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    }
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+    @media (max-width: 768px) {
+      .login-container {
+        flex-direction: column;
+      }
+      .left-panel, .right-panel {
+        flex: none;
+        height: auto;
+        width: 100%;
+        padding: 30px 15px;
+      }
+    }
+  </style>
+</head>
+<body onload="checkNotAuth()">
+  <div class="login-container">
+    <div class="left-panel">
+      <h3>JOIN US !</h3>
+      <p>Create your account to start</p>
+    </div>
+    <div class="right-panel">
+      <div class="form-box">
+        <h4 class="text-center mb-4">REGISTER<br><small class="text-muted"></small></h4>
+        <form onsubmit="register(event)">
+          <div class="mb-3">
+            <input type="text" id="username" class="form-control" placeholder="Enter User Name Here" required />
+          </div>
+          <div class="mb-3">
+            <input type="password" id="password" class="form-control" placeholder="Enter Password" required />
+          </div>
+          <button class="btn btn-register w-100">Register</button>
+        </form>
+        <p class="text-center mt-3">Already registered? <a href="login.html">Login here</a></p>
+      </div>
+    </div>
+  </div>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/register.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
