@@ -6,3 +6,5 @@ steps:
     args: ['push', 'gcr.io/$PROJECT_ID/frontend']
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['run', 'deploy', 'frontend', '--image', 'gcr.io/$PROJECT_ID/frontend', '--platform', 'managed', '--region', 'us-central1']
+options:
+  logs_bucket: gs://projek_tcc
